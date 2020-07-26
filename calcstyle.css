@@ -12,20 +12,48 @@ display: flex;
 flex-direction: column;
 }
 
-.display{
+#display{
   width: 100%;
-  font-size:24px;
-  background-color: grey;
+  padding: 10px 0;
+  font-size:18px;
+  background-color: #bab7ad;
   text-align: right;
+  color: blue;
 }
 
 #grid{
-  width: 100%;
+    width: 100%;
   border-top: 3px solid black;
+  display: flex;
   flex-direction: row;
+  flex-wrap: wrap;
 }
 
 .number{
-  width: 22%;
-  margin: 1%;
+margin: 1%;
+  flex: 0 0 23%;
+}
+
+#butdiv{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+#resetbut{
+  margin-bottom: 1%;
+}
+#reset-dialog{
+  margin-top:5%;
+  color: red;
+  text-align:center;
+}
+#history{
+  border: 3px solid black;
+  text-align: center;
+  width: 50%;
+  margin: auto;
+}
+#historyul{
+  list-style-type:none;
+  padding-left: 0;
 }

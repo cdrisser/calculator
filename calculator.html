@@ -11,36 +11,41 @@
   <body>
 <h1  id = "demo">Calculator</h1>
 <div class = "main-calc">
-  <div class = "display">
-    0
+  <div id = "display">
+    Waiting for input...
   </div>
     <div id = "grid">
-        <button class = "number">7</button>
-        <button class = "number">8</button>
-        <button class = "number">9</button>
-        <button class = "number">/</button>
-        <button class = "number">4</button>
-        <button class = "number">5</button>
-        <button class = "number">6</button>
-        <button class = "number">x</button>
-        <button class = "number">1</button>
-        <button class = "number">2</button>
-        <button class = "number">3</button>
-        <button class = "number">-</button>
-        <button class = "number">0</button>
-        <button class = "number">.</button>
-        <button class = "number">=</button>
-        <button class = "number">+</button>
+        <button class = "number" onclick ="beforeOperation(7)">7</button>
+        <button class = "number" onclick ="beforeOperation(8)">8</button>
+        <button class = "number" onclick ="beforeOperation(9)">9</button>
+        <button class = "number" onclick ="completeOperation('div')">/</button>
+        <button class = "number" onclick ="beforeOperation(4)">4</button>
+        <button class = "number" onclick ="beforeOperation(5)">5</button>
+        <button class = "number" onclick ="beforeOperation(6)">6</button>
+        <button class = "number" onclick ="completeOperation('x')">x</button>
+        <button class = "number" onclick ="beforeOperation(1)">1</button>
+        <button class = "number" onclick ="beforeOperation(2)">2</button>
+        <button class = "number" onclick ="beforeOperation(3)">3</button>
+        <button class = "number" onclick ="completeOperation('-')">-</button>
+        <button class = "number" onclick ="beforeOperation(0)">0</button>
+        <button class = "number" onclick ="beforeOperation('.')">.</button>
+        <button class = "number" onclick ="calculate()">=</button>
+        <button class = "number" onclick ="completeOperation('+')">+</button>
 
 
 
     </div>
-
-    </div>
+      <div id = "butdiv">
+        <button id = "resetbut" onclick = "reset()">Reset</button>
+      </div>
 
   </div>
-</div>
+  <div id = "reset-dialog"></div>
+  <div id= "history">
+    <ul  id ="historyul">History
 
+    </ul>
+  </div>
 
   </body>
   <script src= "calc.js" type="text/javascript"></script>
