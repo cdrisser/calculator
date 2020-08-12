@@ -2,7 +2,7 @@
 let displaystr = "";
 let total =0;
 const num = document.getElementsByClassName('number');
-
+var resetDisplay = false;
 //creates border so user can see what button they pushed
 for(var i=0; i<num.length; i++){
 num[i].addEventListener("mousedown", (event)=>{
@@ -17,6 +17,7 @@ num[i].addEventListener("mouseup", (event)=>{
 function operation(a=""){
     displaystr += a;
     document.getElementById('display').innerHTML = displaystr;
+
 }
 
 function action(input){
@@ -35,7 +36,7 @@ function action(input){
 function reset(input){
   //reset was before calculate - reset everything and let use know reset is occuring
   if(!(input == 1)){
-    console.log("ehre");
+
     document.getElementById('display').innerHTML = "";
   document.getElementById('reset-dialog').innerHTML = "Reset Complete";
   setTimeout(()=>{
@@ -77,6 +78,7 @@ function currentMath(input){
   }
 }
 function calculate(){
+  //resetDisplay = true;
 let getLastInput = document.getElementById('currentmath').innerHTML;
 currentMath(getLastInput[getLastInput.length-1]);
 console.log(getLastInput);
