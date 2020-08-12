@@ -11,7 +11,11 @@ margin: auto;
 display: flex;
 flex-direction: column;
 }
-
+#currentmath{
+  width: 100%;
+  text-align: right;
+  font-size: 12px;
+}
 #display{
   width: 100%;
   padding: 10px 0;
@@ -47,13 +51,7 @@ margin: 1%;
   color: red;
   text-align:center;
 }
-#history{
-  border: 3px solid black;
-  text-align: center;
-  width: 50%;
-  margin: auto;
-}
-#historyul{
-  list-style-type:none;
-  padding-left: 0;
+#warning-dialog{
+  color: red;
+  text-align:center;
 }

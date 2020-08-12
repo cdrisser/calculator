@@ -1,10 +1,8 @@
 
-let numberarr = [];
 let displaystr = "";
 let total =0;
-let firstnumber = false;
-
 const num = document.getElementsByClassName('number');
+
 //creates border so user can see what button they pushed
 for(var i=0; i<num.length; i++){
 num[i].addEventListener("mousedown", (event)=>{
@@ -16,50 +14,72 @@ num[i].addEventListener("mouseup", (event)=>{
   event.target.style.border = "";
 })}
 
-function beforeOperation(a){
-
-displaystr += a;
-  document.getElementById('display').innerHTML = displaystr;
-
+function operation(a=""){
+    displaystr += a;
+    document.getElementById('display').innerHTML = displaystr;
 }
 
-function reset(){
-document.getElementById('display').innerHTML = "Waiting for input..."
-displaystr = "";
+function action(input){
+  if(displaystr == ''){
+    dispWarning();
+  }
+  else{
+    currentMath(input);
+    let storeDisplayStr = document.getElementById('currentmath').innerHTML;
+    document.getElementById('currentmath').innerHTML = `${storeDisplayStr} ${displaystr} ${input}`;
+    document.getElementById('display').innerHTML = '';
+    displaystr = '';
+    }
+}
+
+function reset(input){
+  //reset was before calculate - reset everything and let use know reset is occuring
+  if(!(input == 1)){
+    console.log("ehre");
+    document.getElementById('display').innerHTML = "";
   document.getElementById('reset-dialog').innerHTML = "Reset Complete";
   setTimeout(()=>{
     document.getElementById('reset-dialog').innerHTML = "";
-  },5000);
-}
-function completeOperation(op){
-  const convert = displaystr.indexOf(".") == -1 ?parseFloat(displaystr): parseInt(displaystr);
-  if(firstnumber){
-    total = convert;
-    firstnumber = false;
+  },3000);
   }
-  switch (op){
-    case "div":
-      addToHistory(displaystr);
-      addToHistory("/");
-      total/= convert;
-      displaystr ="";
-      break;
-    case "x":
-      break;
-    case"-":
-      break;
-    case "+" :
-      break;
-  }
+  document.getElementById('currentmath').innerHTML = "";
+  displaystr = "";
+  total = 0;
 }
-function addToHistory(str){
-  const ul = document.getElementById("historyul");
-  const li = document.createElement('li');
-  li.innerHTML = str;
-  ul.appendChild(li);
+function dispWarning(){
+  document.getElementById('warning-dialog').innerHTML = "No input to operate on";
+  setTimeout(()=>{
+    document.getElementById('warning-dialog').innerHTML = "";
+  },3000);
+}
+function currentMath(input){
+  if(document.getElementById('currentmath').innerHTML == ''){
+    total = Number(displaystr);
+    return;
+  }
+  switch(input){
+    case '/':
+    var test = total/=(Number(displaystr));
+    console.log(test);
+    break;
+    case '+':
+    total+=Number(displaystr);
+    console.log(total);
+    break;
+    case '-':
+    total-=Number(displaystr);
+    console.log(total);
+    break;
+    case 'x':
+    total *= Number(displaystr);
+    console.log(total);
+    break;
+  }
 }
 function calculate(){
-  const convert = displaystr.indexOf(".") == -1 ?parseFloat(displaystr): parseInt(displaystr);
-  console.log(total);
-  document.getElementById('display').innerHTML = total;
+let getLastInput = document.getElementById('currentmath').innerHTML;
+currentMath(getLastInput[getLastInput.length-1]);
+console.log(getLastInput);
+document.getElementById('display').innerHTML = String(total);
+reset(1);
 }
