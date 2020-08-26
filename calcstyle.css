@@ -37,6 +37,9 @@ flex-direction: column;
 margin: 1%;
   flex: 0 0 23%;
 }
+.number:hover{
+  transform:scale(1.1);
+}
 
 #butdiv{
   width: 100%;
