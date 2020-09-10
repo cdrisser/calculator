@@ -3,26 +3,38 @@ body{
 }
 h1{
   text-align: center;
+
+}
+html{
+  font-family: 'Raleway', sans-serif;
+  background-color:#c0c5ce;
 }
 .main-calc{
 border: 3px solid black;
-width: 50%;
+width: 30%;
 margin: auto;
 display: flex;
 flex-direction: column;
+height:50vh;
 }
 #currentmath{
   width: 100%;
   text-align: right;
-  font-size: 12px;
+  font-size: 18px;
+  font-weight:600;
+  background-color:#65737e;
+  color:#c73530;
+  border-bottom: .5px solid black;
 }
 #display{
   width: 100%;
   padding: 10px 0;
-  font-size:18px;
-  background-color: #bab7ad;
+  height:20%;
+  font-size:30px;
+  background-color:#65737e;
   text-align: right;
-  color: blue;
+  color: white;
+
 }
 
 #grid{
@@ -31,14 +43,28 @@ flex-direction: column;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
+  height:75%;
 }
 
 .number{
-margin: 1%;
-  flex: 0 0 23%;
+  flex: 0 0 25%;
+  font-size:18px;
+
 }
-.number:hover{
+button{
+  font-family: inherit;
+  background-color:#343d46;
+  color:white;
+font-size:18px;
+}
+.number:hover, #resetbut:hover{
   transform:scale(1.1);
+  background-color:#65737e;
+  border: 2px solid black;
+  color:black;
+}
+#resetbut{
+  background-color:#c73530;
 }
 
 #butdiv{
@@ -46,8 +72,12 @@ margin: 1%;
   display: flex;
   justify-content: center;
 }
+.resetdiv{
+width:100%;
+}
 #resetbut{
-  margin-bottom: 1%;
+  width:100%;
+  padding:5px;
 }
 #reset-dialog{
   margin-top:5%;
